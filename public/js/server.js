@@ -34748,7 +34748,7 @@ var server = new vue__WEBPACK_IMPORTED_MODULE_3___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\xamp\htdocs\ecom\resources\js\server.js */"./resources/js/server.js");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\ecom\resources\js\server.js */"./resources/js/server.js");
 
 
 /***/ })

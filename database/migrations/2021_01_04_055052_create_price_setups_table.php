@@ -25,6 +25,7 @@ class CreatePriceSetupsTable extends Migration
             $table->integer('quan')->nullable();
             $table->integer('updatedBy')->nullable();
             $table->integer('status')->default(0);
+            $table->integer('homeSta')->default(0);
             $table->timestamps();
         });
     }

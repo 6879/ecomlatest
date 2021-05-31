@@ -289,7 +289,25 @@
                 </div>
               </div>
             </div>
-              
+  
+         <label class="form-check-label" v-if="catLength<12">
+  <span style="color:green" > You Can Add </span><span style="color:red">{{12-catLength}}</span><span style="color:green" > Product In home page </span>
+  </label>
+         <label class="form-check-label" v-else>
+  <span style="color:green" > Home page product Limit Over</span>
+  </label>
+         <div class="form-check" v-if="catLength<12">
+  <input class="form-check-input" v-model="form.homeStatus" name="homeStatus" type="checkbox" value="1" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    Add Home
+  </label>
+</div>
+         <div class="form-check" v-else>
+  <input class="form-check-input" v-model="form.homeStatus" name="homeStatus" disabled type="checkbox" value="1" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    Add Home
+  </label>
+</div>
             <button :disabled="form.busy" type="submit" class="btn btn-primary">
               Submit
             </button>
@@ -358,8 +376,10 @@ export default {
         image7: "",
         image8: "",
         image9: "",
+        homeStatus:''
       }),
       logos: [],     
+      catLength:'',     
       imageOne: true,
       imageTwo: true,
       imageThree: true,
@@ -373,6 +393,7 @@ export default {
   },
   mounted() {
     this.editImage();
+    this.catProductLength();
   },
   methods: {
      playSound() {
@@ -384,6 +405,11 @@ export default {
      editImage() {
       axios.get(`catImage/${this.$route.params.id}`).then((res) => {
         this.form.fill(res.data);
+      });
+    },
+     catProductLength() {
+      axios.get(`catImage/${this.$route.params.id}/edit`).then((res) => {
+        this.catLength=res.data;
       });
     },
     update() {

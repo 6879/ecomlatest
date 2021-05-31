@@ -19,6 +19,7 @@ class CreateProductCategoriesTable extends Migration
             $table->integer('categoryId');           
             $table->integer('createby')->nullable();
             $table->integer('updateby')->nullable();
+            $table->integer('homeStatus')->default(0);
             $table->timestamps();
         });
     }

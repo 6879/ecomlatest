@@ -83,6 +83,7 @@ Route::resource('warehouse','WarehouseController');
 Route::resource('productTransfer','ProductTransferController');
 Route::resource('catPermission','CategoryPermissionController');
 Route::resource('catImage','CategoryImageController');
+
 Route::resource('location','BangladeshLocationController');
 Route::resource('deliveryLocation','DeliveryLocationController');
 Route::resource('deliveryCharge','DeliveryChargeController');

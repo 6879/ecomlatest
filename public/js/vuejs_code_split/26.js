@@ -772,7 +772,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -983,8 +982,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this9 = this;
 
       axios.get("productView").then(function (res) {
-        _this9.prices = res.data.priceget;
-        _this9.limits = res.data.pricegetq;
+        _this9.prices = res.data.pricegetq;
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -1107,571 +1105,427 @@ var render = function() {
                             staticClass:
                               "col-6 col-md-2 col-xs-4 col-sm-4 hovereffect paddingImage2"
                           },
-                          _vm._l(_vm.limits, function(lt) {
-                            return lt.categoryId == menu.id &&
-                              lt.productNameId <= 12
-                              ? _c(
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "col-12 col-md-12 col-xs-12 shadow mb-5 bg-white rounded"
+                              },
+                              [
+                                _c(
                                   "div",
-                                  {
-                                    staticClass:
-                                      "col-12 col-md-12 col-xs-12 shadow mb-5 bg-white rounded"
-                                  },
                                   [
+                                    _c("figure", [
+                                      _c("img", {
+                                        staticClass: "img-fluid box3Images",
+                                        attrs: {
+                                          src: "productImage/" + product.image
+                                        }
+                                      })
+                                    ]),
+                                    _vm._v(" "),
                                     _c(
                                       "div",
+                                      { staticClass: "overlay" },
                                       [
-                                        _vm._v(
-                                          "\n                 " +
-                                            _vm._s(index) +
-                                            "\n              "
-                                        ),
-                                        _c("figure", [
-                                          _c("img", {
-                                            staticClass: "img-fluid box3Images",
-                                            attrs: {
-                                              src:
-                                                "productImage/" + product.image
-                                            }
-                                          })
-                                        ]),
+                                        _vm._l(_vm.offers, function(offer) {
+                                          return offer.productId ==
+                                            product.productNameId
+                                            ? _c(
+                                                "div",
+                                                {
+                                                  staticStyle: {
+                                                    "text-align": "center"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "a",
+                                                    {
+                                                      staticClass: "info",
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.addCart(
+                                                            product,
+                                                            offer
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        "Add To Shopping Cart"
+                                                      )
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            : _vm._e()
+                                        }),
                                         _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "overlay" },
-                                          [
-                                            _vm._l(_vm.offers, function(offer) {
-                                              return offer.productId ==
-                                                product.productNameId
-                                                ? _c(
+                                        product.offer == null
+                                          ? _c(
+                                              "div",
+                                              {
+                                                staticStyle: {
+                                                  "text-align": "center"
+                                                }
+                                              },
+                                              [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    staticClass: "info",
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.addCart(
+                                                          product,
+                                                          product
+                                                        )
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "Add To Shopping Cart"
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _vm._l(_vm.carts, function(cart) {
+                                          return cart.id == product.id
+                                            ? _c(
+                                                "div",
+                                                {
+                                                  key: cart.id,
+                                                  staticClass: "hovercart"
+                                                },
+                                                [
+                                                  _c(
                                                     "div",
                                                     {
-                                                      staticStyle: {
-                                                        "text-align": "center"
+                                                      staticClass: "btn-group",
+                                                      attrs: {
+                                                        role: "group",
+                                                        "aria-label":
+                                                          "Basic example"
                                                       }
                                                     },
                                                     [
                                                       _c(
-                                                        "a",
+                                                        "button",
                                                         {
-                                                          staticClass: "info",
+                                                          staticClass:
+                                                            "btn btn-info",
+                                                          attrs: {
+                                                            type: "button"
+                                                          },
                                                           on: {
                                                             click: function(
                                                               $event
                                                             ) {
-                                                              return _vm.addCart(
-                                                                product,
-                                                                offer
+                                                              return _vm.increment(
+                                                                cart
                                                               )
                                                             }
                                                           }
                                                         },
                                                         [
                                                           _vm._v(
-                                                            "Add To Shopping Cart"
+                                                            "\n                      +\n                    "
                                                           )
                                                         ]
-                                                      )
-                                                    ]
-                                                  )
-                                                : _vm._e()
-                                            }),
-                                            _vm._v(" "),
-                                            product.offer == null
-                                              ? _c(
-                                                  "div",
-                                                  {
-                                                    staticStyle: {
-                                                      "text-align": "center"
-                                                    }
-                                                  },
-                                                  [
-                                                    _c(
-                                                      "a",
-                                                      {
-                                                        staticClass: "info",
-                                                        on: {
-                                                          click: function(
-                                                            $event
-                                                          ) {
-                                                            return _vm.addCart(
-                                                              product,
-                                                              product
-                                                            )
-                                                          }
-                                                        }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          "Add To Shopping Cart"
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            _vm._l(_vm.carts, function(cart) {
-                                              return cart.id == product.id
-                                                ? _c(
-                                                    "div",
-                                                    {
-                                                      key: cart.id,
-                                                      staticClass: "hovercart"
-                                                    },
-                                                    [
+                                                      ),
+                                                      _vm._v(" "),
                                                       _c(
-                                                        "div",
+                                                        "button",
                                                         {
                                                           staticClass:
-                                                            "btn-group",
+                                                            "btn btn-info",
                                                           attrs: {
-                                                            role: "group",
-                                                            "aria-label":
-                                                              "Basic example"
+                                                            type: "button"
                                                           }
                                                         },
                                                         [
-                                                          _c(
-                                                            "button",
-                                                            {
-                                                              staticClass:
-                                                                "btn btn-info",
-                                                              attrs: {
-                                                                type: "button"
-                                                              },
-                                                              on: {
-                                                                click: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.increment(
-                                                                    cart
-                                                                  )
-                                                                }
-                                                              }
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "\n                      +\n                    "
+                                                          _vm._v(
+                                                            "\n                      " +
+                                                              _vm._s(cart.qun) +
+                                                              " in Cart\n                    "
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "button",
+                                                        {
+                                                          staticClass:
+                                                            "btn btn-info",
+                                                          attrs: {
+                                                            type: "button"
+                                                          },
+                                                          on: {
+                                                            click: function(
+                                                              $event
+                                                            ) {
+                                                              return _vm.decrement(
+                                                                cart
                                                               )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "button",
-                                                            {
-                                                              staticClass:
-                                                                "btn btn-info",
-                                                              attrs: {
-                                                                type: "button"
-                                                              }
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "\n                      " +
-                                                                  _vm._s(
-                                                                    cart.qun
-                                                                  ) +
-                                                                  " in Cart\n                    "
-                                                              )
-                                                            ]
-                                                          ),
-                                                          _vm._v(" "),
-                                                          _c(
-                                                            "button",
-                                                            {
-                                                              staticClass:
-                                                                "btn btn-info",
-                                                              attrs: {
-                                                                type: "button"
-                                                              },
-                                                              on: {
-                                                                click: function(
-                                                                  $event
-                                                                ) {
-                                                                  return _vm.decrement(
-                                                                    cart
-                                                                  )
-                                                                }
-                                                              }
-                                                            },
-                                                            [
-                                                              _vm._v(
-                                                                "\n                      -\n                    "
-                                                              )
-                                                            ]
+                                                            }
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "\n                      -\n                    "
                                                           )
                                                         ]
                                                       )
                                                     ]
                                                   )
-                                                : _vm._e()
-                                            }),
-                                            _vm._v(" "),
-                                            _c(
-                                              "div",
-                                              { staticClass: "detail" },
-                                              [
-                                                _c(
-                                                  "a",
-                                                  {
-                                                    staticClass:
-                                                      "btn btn-success",
-                                                    attrs: {
-                                                      "data-toggle": "modal",
-                                                      "data-target":
-                                                        "#" +
-                                                        "product" +
-                                                        product.productNameId
-                                                    }
-                                                  },
-                                                  [_vm._v("Details")]
-                                                )
-                                              ]
-                                            )
-                                          ],
-                                          2
-                                        ),
+                                                ]
+                                              )
+                                            : _vm._e()
+                                        }),
                                         _vm._v(" "),
+                                        _c("div", { staticClass: "detail" }, [
+                                          _c(
+                                            "a",
+                                            {
+                                              staticClass: "btn btn-success",
+                                              attrs: {
+                                                "data-toggle": "modal",
+                                                "data-target":
+                                                  "#" +
+                                                  "product" +
+                                                  product.productNameId
+                                              }
+                                            },
+                                            [_vm._v("Details")]
+                                          )
+                                        ])
+                                      ],
+                                      2
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "modal fade",
+                                        attrs: {
+                                          id: "product" + product.productNameId,
+                                          tabindex: "-1",
+                                          role: "dialog",
+                                          "aria-hidden": "true"
+                                        }
+                                      },
+                                      [
                                         _c(
                                           "div",
                                           {
-                                            staticClass: "modal fade",
-                                            attrs: {
-                                              id:
-                                                "product" +
-                                                product.productNameId,
-                                              tabindex: "-1",
-                                              role: "dialog",
-                                              "aria-hidden": "true"
-                                            }
+                                            staticClass: "modal-dialog modal-xl"
                                           },
                                           [
                                             _c(
                                               "div",
-                                              {
-                                                staticClass:
-                                                  "modal-dialog modal-xl"
-                                              },
+                                              { staticClass: "modal-content" },
                                               [
+                                                _vm._m(0, true),
+                                                _vm._v(" "),
                                                 _c(
                                                   "div",
-                                                  {
-                                                    staticClass: "modal-content"
-                                                  },
+                                                  { staticClass: "modal-body" },
                                                   [
-                                                    _vm._m(0, true),
-                                                    _vm._v(" "),
                                                     _c(
                                                       "div",
-                                                      {
-                                                        staticClass:
-                                                          "modal-body"
-                                                      },
+                                                      { staticClass: "row" },
                                                       [
                                                         _c(
                                                           "div",
                                                           {
-                                                            staticClass: "row"
+                                                            staticClass:
+                                                              "col-md-6"
                                                           },
                                                           [
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-md-6"
+                                                                  "zoomImg"
                                                               },
                                                               [
                                                                 _c(
-                                                                  "div",
+                                                                  "zoom-on-hover",
                                                                   {
-                                                                    staticClass:
-                                                                      "zoomImg"
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "zoom-on-hover",
-                                                                      {
-                                                                        attrs: {
-                                                                          "img-normal":
-                                                                            "productImage/" +
-                                                                            product.image,
-                                                                          "img-zoom":
-                                                                            "productImage/" +
-                                                                            product.image,
-                                                                          scale: 2
-                                                                        }
-                                                                      }
-                                                                    )
-                                                                  ],
-                                                                  1
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c("br")
-                                                              ]
+                                                                    attrs: {
+                                                                      "img-normal":
+                                                                        "productImage/" +
+                                                                        product.image,
+                                                                      "img-zoom":
+                                                                        "productImage/" +
+                                                                        product.image,
+                                                                      scale: 2
+                                                                    }
+                                                                  }
+                                                                )
+                                                              ],
+                                                              1
                                                             ),
+                                                            _vm._v(" "),
+                                                            _c("br")
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass:
+                                                              "col-md-6 col-xs-12 product_content ml-0"
+                                                          },
+                                                          [
+                                                            _c("h4", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  product
+                                                                    .product_name
+                                                                    .pname
+                                                                )
+                                                              )
+                                                            ]),
                                                             _vm._v(" "),
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "col-md-6 col-xs-12 product_content ml-0"
+                                                                  "ml-0"
                                                               },
-                                                              [
-                                                                _c("h4", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      product
-                                                                        .product_name
-                                                                        .pname
-                                                                    )
-                                                                  )
-                                                                ]),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "div",
-                                                                  {
-                                                                    staticClass:
-                                                                      "ml-0"
-                                                                  },
-                                                                  _vm._l(
-                                                                    _vm.purchaseproducts,
-                                                                    function(
-                                                                      purchaseProduct
-                                                                    ) {
-                                                                      return _c(
-                                                                        "span",
-                                                                        [
-                                                                          purchaseProduct.pname ==
-                                                                          product.productNameId
-                                                                            ? _c(
-                                                                                "span",
-                                                                                [
-                                                                                  _vm._l(
-                                                                                    _vm.units,
-                                                                                    function(
-                                                                                      unit
-                                                                                    ) {
-                                                                                      return purchaseProduct.unit ==
-                                                                                        unit.id
-                                                                                        ? _c(
-                                                                                            "span",
-                                                                                            {
-                                                                                              key:
-                                                                                                unit.id
-                                                                                            },
-                                                                                            [
-                                                                                              _vm._v(
-                                                                                                _vm._s(
-                                                                                                  unit.unit
-                                                                                                )
-                                                                                              ),
-                                                                                              _c(
-                                                                                                "span"
-                                                                                              )
-                                                                                            ]
-                                                                                          )
-                                                                                        : _vm._e()
-                                                                                    }
-                                                                                  ),
-                                                                                  _vm._v(
-                                                                                    "\n                              Brand: "
-                                                                                  ),
-                                                                                  _vm._l(
-                                                                                    _vm.brands,
-                                                                                    function(
-                                                                                      brand
-                                                                                    ) {
-                                                                                      return purchaseProduct.brand ==
-                                                                                        brand.id
-                                                                                        ? _c(
-                                                                                            "span",
-                                                                                            {
-                                                                                              key:
-                                                                                                brand.id
-                                                                                            },
-                                                                                            [
-                                                                                              _vm._v(
-                                                                                                _vm._s(
-                                                                                                  brand.brand
-                                                                                                )
-                                                                                              )
-                                                                                            ]
-                                                                                          )
-                                                                                        : _vm._e()
-                                                                                    }
-                                                                                  ),
-                                                                                  _vm._v(
-                                                                                    "\n                              Color: "
-                                                                                  ),
-                                                                                  _vm._l(
-                                                                                    _vm.colors,
-                                                                                    function(
-                                                                                      color
-                                                                                    ) {
-                                                                                      return purchaseProduct.color ==
-                                                                                        color.id
-                                                                                        ? _c(
-                                                                                            "span",
-                                                                                            {
-                                                                                              key:
-                                                                                                color.id
-                                                                                            },
-                                                                                            [
-                                                                                              _vm._v(
-                                                                                                _vm._s(
-                                                                                                  color.color
-                                                                                                ) +
-                                                                                                  "\n                            "
-                                                                                              )
-                                                                                            ]
-                                                                                          )
-                                                                                        : _vm._e()
-                                                                                    }
-                                                                                  )
-                                                                                ],
-                                                                                2
-                                                                              )
-                                                                            : _vm._e()
-                                                                        ]
-                                                                      )
-                                                                    }
-                                                                  ),
-                                                                  0
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _vm._l(
-                                                                  _vm.offers,
-                                                                  function(
-                                                                    offer
-                                                                  ) {
-                                                                    return offer.productId ==
+                                                              _vm._l(
+                                                                _vm.purchaseproducts,
+                                                                function(
+                                                                  purchaseProduct
+                                                                ) {
+                                                                  return _c(
+                                                                    "span",
+                                                                    [
+                                                                      purchaseProduct.pname ==
                                                                       product.productNameId
-                                                                      ? _c(
-                                                                          "p",
-                                                                          {
-                                                                            key:
-                                                                              offer.id
-                                                                          },
-                                                                          [
-                                                                            _c(
-                                                                              "span",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "dPrice cost"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "span",
-                                                                                  [
-                                                                                    _vm._v(
-                                                                                      "৳"
-                                                                                    )
-                                                                                  ]
-                                                                                ),
-                                                                                _vm._v(
-                                                                                  " " +
-                                                                                    _vm._s(
-                                                                                      offer.totalPrice
-                                                                                    )
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              "  \n                        "
-                                                                            ),
-                                                                            _c(
-                                                                              "span",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "tk"
-                                                                              },
-                                                                              [
-                                                                                _vm._v(
-                                                                                  "৳"
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              " "
-                                                                            ),
-                                                                            _c(
-                                                                              "del",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "text-muted"
-                                                                              },
-                                                                              [
-                                                                                _vm._v(
-                                                                                  _vm._s(
-                                                                                    product.salesPrice
-                                                                                  )
-                                                                                )
-                                                                              ]
-                                                                            ),
-                                                                            _vm._v(
-                                                                              "  \n                        "
-                                                                            ),
-                                                                            _c(
-                                                                              "span",
-                                                                              {
-                                                                                staticStyle: {
-                                                                                  color:
-                                                                                    "red"
+                                                                        ? _c(
+                                                                            "span",
+                                                                            [
+                                                                              _vm._l(
+                                                                                _vm.units,
+                                                                                function(
+                                                                                  unit
+                                                                                ) {
+                                                                                  return purchaseProduct.unit ==
+                                                                                    unit.id
+                                                                                    ? _c(
+                                                                                        "span",
+                                                                                        {
+                                                                                          key:
+                                                                                            unit.id
+                                                                                        },
+                                                                                        [
+                                                                                          _vm._v(
+                                                                                            _vm._s(
+                                                                                              unit.unit
+                                                                                            )
+                                                                                          ),
+                                                                                          _c(
+                                                                                            "span"
+                                                                                          )
+                                                                                        ]
+                                                                                      )
+                                                                                    : _vm._e()
                                                                                 }
-                                                                              },
-                                                                              [
-                                                                                _vm._v(
-                                                                                  _vm._s(
-                                                                                    offer.offerPrice
-                                                                                  )
-                                                                                ),
-                                                                                offer.ammountType ==
-                                                                                1
-                                                                                  ? _c(
-                                                                                      "span",
-                                                                                      [
-                                                                                        _vm._v(
-                                                                                          "TK"
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  : _vm._e(),
-                                                                                offer.ammountType ==
-                                                                                2
-                                                                                  ? _c(
-                                                                                      "span",
-                                                                                      [
-                                                                                        _vm._v(
-                                                                                          "%"
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  : _vm._e(),
-                                                                                _vm._v(
-                                                                                  " Off"
-                                                                                )
-                                                                              ]
-                                                                            )
-                                                                          ]
-                                                                        )
-                                                                      : _vm._e()
-                                                                  }
-                                                                ),
-                                                                _vm._v(" "),
-                                                                product.offer ==
-                                                                null
+                                                                              ),
+                                                                              _vm._v(
+                                                                                "\n                              Brand: "
+                                                                              ),
+                                                                              _vm._l(
+                                                                                _vm.brands,
+                                                                                function(
+                                                                                  brand
+                                                                                ) {
+                                                                                  return purchaseProduct.brand ==
+                                                                                    brand.id
+                                                                                    ? _c(
+                                                                                        "span",
+                                                                                        {
+                                                                                          key:
+                                                                                            brand.id
+                                                                                        },
+                                                                                        [
+                                                                                          _vm._v(
+                                                                                            _vm._s(
+                                                                                              brand.brand
+                                                                                            )
+                                                                                          )
+                                                                                        ]
+                                                                                      )
+                                                                                    : _vm._e()
+                                                                                }
+                                                                              ),
+                                                                              _vm._v(
+                                                                                "\n                              Color: "
+                                                                              ),
+                                                                              _vm._l(
+                                                                                _vm.colors,
+                                                                                function(
+                                                                                  color
+                                                                                ) {
+                                                                                  return purchaseProduct.color ==
+                                                                                    color.id
+                                                                                    ? _c(
+                                                                                        "span",
+                                                                                        {
+                                                                                          key:
+                                                                                            color.id
+                                                                                        },
+                                                                                        [
+                                                                                          _vm._v(
+                                                                                            _vm._s(
+                                                                                              color.color
+                                                                                            ) +
+                                                                                              "\n                            "
+                                                                                          )
+                                                                                        ]
+                                                                                      )
+                                                                                    : _vm._e()
+                                                                                }
+                                                                              )
+                                                                            ],
+                                                                            2
+                                                                          )
+                                                                        : _vm._e()
+                                                                    ]
+                                                                  )
+                                                                }
+                                                              ),
+                                                              0
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _vm._l(
+                                                              _vm.offers,
+                                                              function(offer) {
+                                                                return offer.productId ==
+                                                                  product.productNameId
                                                                   ? _c(
                                                                       "p",
                                                                       {
-                                                                        staticClass:
-                                                                          "dPrice"
+                                                                        key:
+                                                                          offer.id
                                                                       },
                                                                       [
                                                                         _c(
                                                                           "span",
                                                                           {
                                                                             staticClass:
-                                                                              "cost"
+                                                                              "dPrice cost"
                                                                           },
                                                                           [
                                                                             _c(
@@ -1685,405 +1539,143 @@ var render = function() {
                                                                             _vm._v(
                                                                               " " +
                                                                                 _vm._s(
-                                                                                  product.salesPrice
+                                                                                  offer.totalPrice
                                                                                 )
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          "  \n                        "
+                                                                        ),
+                                                                        _c(
+                                                                          "span",
+                                                                          {
+                                                                            staticClass:
+                                                                              "tk"
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              "৳"
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          " "
+                                                                        ),
+                                                                        _c(
+                                                                          "del",
+                                                                          {
+                                                                            staticClass:
+                                                                              "text-muted"
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              _vm._s(
+                                                                                product.salesPrice
+                                                                              )
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          "  \n                        "
+                                                                        ),
+                                                                        _c(
+                                                                          "span",
+                                                                          {
+                                                                            staticStyle: {
+                                                                              color:
+                                                                                "red"
+                                                                            }
+                                                                          },
+                                                                          [
+                                                                            _vm._v(
+                                                                              _vm._s(
+                                                                                offer.offerPrice
+                                                                              )
+                                                                            ),
+                                                                            offer.ammountType ==
+                                                                            1
+                                                                              ? _c(
+                                                                                  "span",
+                                                                                  [
+                                                                                    _vm._v(
+                                                                                      "TK"
+                                                                                    )
+                                                                                  ]
+                                                                                )
+                                                                              : _vm._e(),
+                                                                            offer.ammountType ==
+                                                                            2
+                                                                              ? _c(
+                                                                                  "span",
+                                                                                  [
+                                                                                    _vm._v(
+                                                                                      "%"
+                                                                                    )
+                                                                                  ]
+                                                                                )
+                                                                              : _vm._e(),
+                                                                            _vm._v(
+                                                                              " Off"
                                                                             )
                                                                           ]
                                                                         )
                                                                       ]
                                                                     )
-                                                                  : _vm._e(),
-                                                                _vm._v(" "),
-                                                                _vm._l(
-                                                                  _vm.offers,
-                                                                  function(
-                                                                    offer
-                                                                  ) {
-                                                                    return _c(
-                                                                      "div",
+                                                                  : _vm._e()
+                                                              }
+                                                            ),
+                                                            _vm._v(" "),
+                                                            product.offer ==
+                                                            null
+                                                              ? _c(
+                                                                  "p",
+                                                                  {
+                                                                    staticClass:
+                                                                      "dPrice"
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "span",
                                                                       {
-                                                                        key:
-                                                                          offer.id,
                                                                         staticClass:
-                                                                          "btn-ground"
+                                                                          "cost"
                                                                       },
                                                                       [
-                                                                        offer.productId ==
-                                                                        product.productNameId
-                                                                          ? _c(
-                                                                              "div",
-                                                                              {
-                                                                                staticClass:
-                                                                                  "row"
-                                                                              },
-                                                                              [
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "col-12 col-md-6 col-xs-12"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "div",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "input-group mb-3"
-                                                                                      },
-                                                                                      [
-                                                                                        _vm._m(
-                                                                                          1,
-                                                                                          true
-                                                                                        ),
-                                                                                        _vm._v(
-                                                                                          " "
-                                                                                        ),
-                                                                                        _c(
-                                                                                          "button",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "form-control form-control-sm buttonInput",
-                                                                                            attrs: {
-                                                                                              type:
-                                                                                                "number",
-                                                                                              id:
-                                                                                                "qty_input",
-                                                                                              value:
-                                                                                                "1",
-                                                                                              min:
-                                                                                                "1"
-                                                                                            }
-                                                                                          },
-                                                                                          [
-                                                                                            _vm._v(
-                                                                                              "\n                                0 in Cart\n                              "
-                                                                                            )
-                                                                                          ]
-                                                                                        ),
-                                                                                        _vm._v(
-                                                                                          " "
-                                                                                        ),
-                                                                                        _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "input-group-prepend"
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "button",
-                                                                                              {
-                                                                                                staticClass:
-                                                                                                  "btn btn-dark btn-sm plusbtn",
-                                                                                                attrs: {
-                                                                                                  id:
-                                                                                                    "plus-btn"
-                                                                                                },
-                                                                                                on: {
-                                                                                                  click: function(
-                                                                                                    $event
-                                                                                                  ) {
-                                                                                                    return _vm.addCart(
-                                                                                                      product,
-                                                                                                      offer
-                                                                                                    )
-                                                                                                  }
-                                                                                                }
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "i",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "fa fa-plus"
-                                                                                                  }
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                          ]
-                                                                                        )
-                                                                                      ]
-                                                                                    ),
-                                                                                    _vm._v(
-                                                                                      " "
-                                                                                    ),
-                                                                                    _vm._l(
-                                                                                      _vm.carts,
-                                                                                      function(
-                                                                                        cart
-                                                                                      ) {
-                                                                                        return cart.id ==
-                                                                                          product.id
-                                                                                          ? _c(
-                                                                                              "div",
-                                                                                              {
-                                                                                                key:
-                                                                                                  cart.id,
-                                                                                                staticClass:
-                                                                                                  "input-group mb-3 incre"
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "div",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "input-group-prepend"
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _c(
-                                                                                                      "button",
-                                                                                                      {
-                                                                                                        staticClass:
-                                                                                                          "btn btn-dark btn-sm minusbtn",
-                                                                                                        attrs: {
-                                                                                                          id:
-                                                                                                            "minus-btn"
-                                                                                                        },
-                                                                                                        on: {
-                                                                                                          click: function(
-                                                                                                            $event
-                                                                                                          ) {
-                                                                                                            return _vm.decrement(
-                                                                                                              cart
-                                                                                                            )
-                                                                                                          }
-                                                                                                        }
-                                                                                                      },
-                                                                                                      [
-                                                                                                        _c(
-                                                                                                          "i",
-                                                                                                          {
-                                                                                                            staticClass:
-                                                                                                              "fa fa-minus"
-                                                                                                          }
-                                                                                                        )
-                                                                                                      ]
-                                                                                                    )
-                                                                                                  ]
-                                                                                                ),
-                                                                                                _vm._v(
-                                                                                                  " "
-                                                                                                ),
-                                                                                                _c(
-                                                                                                  "button",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "form-control form-control-sm buttonInput",
-                                                                                                    attrs: {
-                                                                                                      type:
-                                                                                                        "number",
-                                                                                                      id:
-                                                                                                        "qty_input",
-                                                                                                      value:
-                                                                                                        "1",
-                                                                                                      min:
-                                                                                                        "1"
-                                                                                                    }
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _vm._v(
-                                                                                                      "\n                                " +
-                                                                                                        _vm._s(
-                                                                                                          cart.qun
-                                                                                                        ) +
-                                                                                                        " in Cart\n                              "
-                                                                                                    )
-                                                                                                  ]
-                                                                                                ),
-                                                                                                _vm._v(
-                                                                                                  " "
-                                                                                                ),
-                                                                                                _c(
-                                                                                                  "div",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "input-group-prepend"
-                                                                                                  },
-                                                                                                  [
-                                                                                                    _c(
-                                                                                                      "button",
-                                                                                                      {
-                                                                                                        staticClass:
-                                                                                                          "btn btn-dark btn-sm plusbtn",
-                                                                                                        attrs: {
-                                                                                                          id:
-                                                                                                            "plus-btn"
-                                                                                                        },
-                                                                                                        on: {
-                                                                                                          click: function(
-                                                                                                            $event
-                                                                                                          ) {
-                                                                                                            return _vm.addCart(
-                                                                                                              product,
-                                                                                                              offer
-                                                                                                            )
-                                                                                                          }
-                                                                                                        }
-                                                                                                      },
-                                                                                                      [
-                                                                                                        _c(
-                                                                                                          "i",
-                                                                                                          {
-                                                                                                            staticClass:
-                                                                                                              "fa fa-plus"
-                                                                                                          }
-                                                                                                        )
-                                                                                                      ]
-                                                                                                    )
-                                                                                                  ]
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                          : _vm._e()
-                                                                                      }
-                                                                                    )
-                                                                                  ],
-                                                                                  2
-                                                                                ),
-                                                                                _vm._v(
-                                                                                  " "
-                                                                                ),
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "col-xs-12"
-                                                                                  },
-                                                                                  [
-                                                                                    _c(
-                                                                                      "button",
-                                                                                      {
-                                                                                        staticClass:
-                                                                                          "btn btn-primary buynow",
-                                                                                        attrs: {
-                                                                                          type:
-                                                                                            "button",
-                                                                                          onclick:
-                                                                                            "openNav()"
-                                                                                        },
-                                                                                        on: {
-                                                                                          click: [
-                                                                                            function(
-                                                                                              $event
-                                                                                            ) {
-                                                                                              return _vm.addCart(
-                                                                                                product,
-                                                                                                offer
-                                                                                              )
-                                                                                            },
-                                                                                            function(
-                                                                                              $event
-                                                                                            ) {
-                                                                                              return _vm.$bvModal.hide(
-                                                                                                "modal" +
-                                                                                                  product.productNameId
-                                                                                              )
-                                                                                            }
-                                                                                          ]
-                                                                                        }
-                                                                                      },
-                                                                                      [
-                                                                                        _c(
-                                                                                          "span",
-                                                                                          {
-                                                                                            staticClass:
-                                                                                              "glyphicon glyphicon-shopping-cart"
-                                                                                          }
-                                                                                        ),
-                                                                                        _vm._v(
-                                                                                          "\n                              Buy Now\n                            "
-                                                                                        )
-                                                                                      ]
-                                                                                    )
-                                                                                  ]
-                                                                                ),
-                                                                                _vm._v(
-                                                                                  " "
-                                                                                ),
-                                                                                _vm._l(
-                                                                                  _vm.carts,
-                                                                                  function(
-                                                                                    cart
-                                                                                  ) {
-                                                                                    return cart.id ==
-                                                                                      product.id
-                                                                                      ? _c(
-                                                                                          "div",
-                                                                                          {
-                                                                                            key:
-                                                                                              cart.id,
-                                                                                            staticClass:
-                                                                                              "col-xs-12 buynowclose"
-                                                                                          },
-                                                                                          [
-                                                                                            _c(
-                                                                                              "button",
-                                                                                              {
-                                                                                                staticClass:
-                                                                                                  "btn btn-primary buynow",
-                                                                                                attrs: {
-                                                                                                  type:
-                                                                                                    "button",
-                                                                                                  onclick:
-                                                                                                    "openNav()"
-                                                                                                },
-                                                                                                on: {
-                                                                                                  click: function(
-                                                                                                    $event
-                                                                                                  ) {
-                                                                                                    return _vm.$bvModal.hide(
-                                                                                                      "modal" +
-                                                                                                        product.productNameId
-                                                                                                    )
-                                                                                                  }
-                                                                                                }
-                                                                                              },
-                                                                                              [
-                                                                                                _c(
-                                                                                                  "span",
-                                                                                                  {
-                                                                                                    staticClass:
-                                                                                                      "glyphicon glyphicon-shopping-cart"
-                                                                                                  }
-                                                                                                ),
-                                                                                                _vm._v(
-                                                                                                  "\n                              Buy Now\n                            "
-                                                                                                )
-                                                                                              ]
-                                                                                            )
-                                                                                          ]
-                                                                                        )
-                                                                                      : _vm._e()
-                                                                                  }
-                                                                                ),
-                                                                                _vm._v(
-                                                                                  " "
-                                                                                ),
-                                                                                _c(
-                                                                                  "div",
-                                                                                  {
-                                                                                    staticClass:
-                                                                                      "col-sm-4"
-                                                                                  }
-                                                                                )
-                                                                              ],
-                                                                              2
+                                                                        _c(
+                                                                          "span",
+                                                                          [
+                                                                            _vm._v(
+                                                                              "৳"
                                                                             )
-                                                                          : _vm._e()
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          " " +
+                                                                            _vm._s(
+                                                                              product.salesPrice
+                                                                            )
+                                                                        )
                                                                       ]
                                                                     )
-                                                                  }
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c(
+                                                                  ]
+                                                                )
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _vm._l(
+                                                              _vm.offers,
+                                                              function(offer) {
+                                                                return _c(
                                                                   "div",
                                                                   {
+                                                                    key:
+                                                                      offer.id,
                                                                     staticClass:
                                                                       "btn-ground"
                                                                   },
                                                                   [
-                                                                    product.offer ==
-                                                                    null
+                                                                    offer.productId ==
+                                                                    product.productNameId
                                                                       ? _c(
                                                                           "div",
                                                                           {
@@ -2106,7 +1698,7 @@ var render = function() {
                                                                                   },
                                                                                   [
                                                                                     _vm._m(
-                                                                                      2,
+                                                                                      1,
                                                                                       true
                                                                                     ),
                                                                                     _vm._v(
@@ -2159,7 +1751,7 @@ var render = function() {
                                                                                               ) {
                                                                                                 return _vm.addCart(
                                                                                                   product,
-                                                                                                  product
+                                                                                                  offer
                                                                                                 )
                                                                                               }
                                                                                             }
@@ -2289,7 +1881,7 @@ var render = function() {
                                                                                                       ) {
                                                                                                         return _vm.addCart(
                                                                                                           product,
-                                                                                                          product
+                                                                                                          offer
                                                                                                         )
                                                                                                       }
                                                                                                     }
@@ -2342,7 +1934,7 @@ var render = function() {
                                                                                         ) {
                                                                                           return _vm.addCart(
                                                                                             product,
-                                                                                            product
+                                                                                            offer
                                                                                           )
                                                                                         },
                                                                                         function(
@@ -2445,274 +2037,490 @@ var render = function() {
                                                                         )
                                                                       : _vm._e()
                                                                   ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "h5",
-                                                                  {
-                                                                    staticClass:
-                                                                      "pdetails"
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "Product Detais"
-                                                                    )
-                                                                  ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c("div", {
-                                                                  domProps: {
-                                                                    innerHTML: _vm._s(
-                                                                      product.details
-                                                                    )
-                                                                  }
-                                                                }),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "h5",
-                                                                  {
-                                                                    staticClass:
-                                                                      "pdetails"
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "Speciality"
-                                                                    )
-                                                                  ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c("div", {
-                                                                  domProps: {
-                                                                    innerHTML: _vm._s(
-                                                                      product.speciality
-                                                                    )
-                                                                  }
-                                                                })
-                                                              ],
-                                                              2
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _vm._m(3, true)
-                                                  ]
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-12 col-md-12 col-xs-12 paddingImage",
-                                            staticStyle: { height: "85px" },
-                                            attrs: { v: "" }
-                                          },
-                                          [
-                                            _c(
-                                              "p",
-                                              {
-                                                staticStyle: {
-                                                  "text-align": "left"
-                                                }
-                                              },
-                                              [
-                                                _vm._v(
-                                                  _vm._s(
-                                                    _vm.getProductName(product)
-                                                  )
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._l(_vm.offers, function(offer) {
-                                          return _c(
-                                            "div",
-                                            {
-                                              key: offer.id,
-                                              staticClass:
-                                                "col-12 col-md-12 col-xs-12 paddingImage"
-                                            },
-                                            [
-                                              offer.productId ==
-                                              product.productNameId
-                                                ? _c(
-                                                    "div",
-                                                    { staticClass: "row" },
-                                                    [
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-6 col-md-4 col-xs-4 amountBox paddingImage"
-                                                        },
-                                                        [
-                                                          _c("center", [
-                                                            _c("bdi", [
-                                                              _c(
-                                                                "p",
-                                                                {
-                                                                  staticClass:
-                                                                    "amount dPrice"
-                                                                },
-                                                                [
-                                                                  _c(
-                                                                    "span",
-                                                                    {
-                                                                      staticClass:
-                                                                        "tk"
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        "৳"
-                                                                      )
-                                                                    ]
-                                                                  ),
-                                                                  _vm._v(
-                                                                    " " +
-                                                                      _vm._s(
-                                                                        offer.totalPrice
-                                                                      ) +
-                                                                      "\n                      "
-                                                                  )
-                                                                ]
-                                                              )
-                                                            ])
-                                                          ])
-                                                        ],
-                                                        1
-                                                      ),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "div",
-                                                        {
-                                                          staticClass:
-                                                            "col-6 col-md-8 col-xs-4 discountBox paddingImage"
-                                                        },
-                                                        [
-                                                          _c("center", [
+                                                                )
+                                                              }
+                                                            ),
+                                                            _vm._v(" "),
                                                             _c(
-                                                              "p",
+                                                              "div",
                                                               {
                                                                 staticClass:
-                                                                  "amountDiscount text-muted"
+                                                                  "btn-ground"
                                                               },
                                                               [
-                                                                _c(
-                                                                  "span",
-                                                                  {
-                                                                    staticClass:
-                                                                      "tk"
-                                                                  },
-                                                                  [_vm._v("৳")]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c("del", [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      product.salesPrice
-                                                                    ) + " "
-                                                                  )
-                                                                ]),
-                                                                _vm._v(" "),
-                                                                _c("small", [
-                                                                  _c(
-                                                                    "span",
-                                                                    {
-                                                                      staticClass:
-                                                                        "amount "
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        _vm._s(
-                                                                          offer.offerPrice
-                                                                        ) + " "
-                                                                      )
-                                                                    ]
-                                                                  ),
-                                                                  offer.ammountType ==
-                                                                  1
-                                                                    ? _c(
-                                                                        "span",
-                                                                        {
-                                                                          staticClass:
-                                                                            "amount"
-                                                                        },
-                                                                        [
-                                                                          _vm._v(
-                                                                            "TK"
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    : _vm._e(),
-                                                                  offer.ammountType ==
-                                                                  2
-                                                                    ? _c(
-                                                                        "span",
-                                                                        {
-                                                                          staticClass:
-                                                                            "amount"
-                                                                        },
-                                                                        [
-                                                                          _vm._v(
-                                                                            "%"
-                                                                          )
-                                                                        ]
-                                                                      )
-                                                                    : _vm._e(),
-                                                                  _vm._v(" "),
-                                                                  _c(
-                                                                    "span",
-                                                                    {
-                                                                      staticClass:
-                                                                        "amount"
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        "Off"
-                                                                      )
-                                                                    ]
-                                                                  )
-                                                                ])
+                                                                product.offer ==
+                                                                null
+                                                                  ? _c(
+                                                                      "div",
+                                                                      {
+                                                                        staticClass:
+                                                                          "row"
+                                                                      },
+                                                                      [
+                                                                        _c(
+                                                                          "div",
+                                                                          {
+                                                                            staticClass:
+                                                                              "col-12 col-md-6 col-xs-12"
+                                                                          },
+                                                                          [
+                                                                            _c(
+                                                                              "div",
+                                                                              {
+                                                                                staticClass:
+                                                                                  "input-group mb-3"
+                                                                              },
+                                                                              [
+                                                                                _vm._m(
+                                                                                  2,
+                                                                                  true
+                                                                                ),
+                                                                                _vm._v(
+                                                                                  " "
+                                                                                ),
+                                                                                _c(
+                                                                                  "button",
+                                                                                  {
+                                                                                    staticClass:
+                                                                                      "form-control form-control-sm buttonInput",
+                                                                                    attrs: {
+                                                                                      type:
+                                                                                        "number",
+                                                                                      id:
+                                                                                        "qty_input",
+                                                                                      value:
+                                                                                        "1",
+                                                                                      min:
+                                                                                        "1"
+                                                                                    }
+                                                                                  },
+                                                                                  [
+                                                                                    _vm._v(
+                                                                                      "\n                                0 in Cart\n                              "
+                                                                                    )
+                                                                                  ]
+                                                                                ),
+                                                                                _vm._v(
+                                                                                  " "
+                                                                                ),
+                                                                                _c(
+                                                                                  "div",
+                                                                                  {
+                                                                                    staticClass:
+                                                                                      "input-group-prepend"
+                                                                                  },
+                                                                                  [
+                                                                                    _c(
+                                                                                      "button",
+                                                                                      {
+                                                                                        staticClass:
+                                                                                          "btn btn-dark btn-sm plusbtn",
+                                                                                        attrs: {
+                                                                                          id:
+                                                                                            "plus-btn"
+                                                                                        },
+                                                                                        on: {
+                                                                                          click: function(
+                                                                                            $event
+                                                                                          ) {
+                                                                                            return _vm.addCart(
+                                                                                              product,
+                                                                                              product
+                                                                                            )
+                                                                                          }
+                                                                                        }
+                                                                                      },
+                                                                                      [
+                                                                                        _c(
+                                                                                          "i",
+                                                                                          {
+                                                                                            staticClass:
+                                                                                              "fa fa-plus"
+                                                                                          }
+                                                                                        )
+                                                                                      ]
+                                                                                    )
+                                                                                  ]
+                                                                                )
+                                                                              ]
+                                                                            ),
+                                                                            _vm._v(
+                                                                              " "
+                                                                            ),
+                                                                            _vm._l(
+                                                                              _vm.carts,
+                                                                              function(
+                                                                                cart
+                                                                              ) {
+                                                                                return cart.id ==
+                                                                                  product.id
+                                                                                  ? _c(
+                                                                                      "div",
+                                                                                      {
+                                                                                        key:
+                                                                                          cart.id,
+                                                                                        staticClass:
+                                                                                          "input-group mb-3 incre"
+                                                                                      },
+                                                                                      [
+                                                                                        _c(
+                                                                                          "div",
+                                                                                          {
+                                                                                            staticClass:
+                                                                                              "input-group-prepend"
+                                                                                          },
+                                                                                          [
+                                                                                            _c(
+                                                                                              "button",
+                                                                                              {
+                                                                                                staticClass:
+                                                                                                  "btn btn-dark btn-sm minusbtn",
+                                                                                                attrs: {
+                                                                                                  id:
+                                                                                                    "minus-btn"
+                                                                                                },
+                                                                                                on: {
+                                                                                                  click: function(
+                                                                                                    $event
+                                                                                                  ) {
+                                                                                                    return _vm.decrement(
+                                                                                                      cart
+                                                                                                    )
+                                                                                                  }
+                                                                                                }
+                                                                                              },
+                                                                                              [
+                                                                                                _c(
+                                                                                                  "i",
+                                                                                                  {
+                                                                                                    staticClass:
+                                                                                                      "fa fa-minus"
+                                                                                                  }
+                                                                                                )
+                                                                                              ]
+                                                                                            )
+                                                                                          ]
+                                                                                        ),
+                                                                                        _vm._v(
+                                                                                          " "
+                                                                                        ),
+                                                                                        _c(
+                                                                                          "button",
+                                                                                          {
+                                                                                            staticClass:
+                                                                                              "form-control form-control-sm buttonInput",
+                                                                                            attrs: {
+                                                                                              type:
+                                                                                                "number",
+                                                                                              id:
+                                                                                                "qty_input",
+                                                                                              value:
+                                                                                                "1",
+                                                                                              min:
+                                                                                                "1"
+                                                                                            }
+                                                                                          },
+                                                                                          [
+                                                                                            _vm._v(
+                                                                                              "\n                                " +
+                                                                                                _vm._s(
+                                                                                                  cart.qun
+                                                                                                ) +
+                                                                                                " in Cart\n                              "
+                                                                                            )
+                                                                                          ]
+                                                                                        ),
+                                                                                        _vm._v(
+                                                                                          " "
+                                                                                        ),
+                                                                                        _c(
+                                                                                          "div",
+                                                                                          {
+                                                                                            staticClass:
+                                                                                              "input-group-prepend"
+                                                                                          },
+                                                                                          [
+                                                                                            _c(
+                                                                                              "button",
+                                                                                              {
+                                                                                                staticClass:
+                                                                                                  "btn btn-dark btn-sm plusbtn",
+                                                                                                attrs: {
+                                                                                                  id:
+                                                                                                    "plus-btn"
+                                                                                                },
+                                                                                                on: {
+                                                                                                  click: function(
+                                                                                                    $event
+                                                                                                  ) {
+                                                                                                    return _vm.addCart(
+                                                                                                      product,
+                                                                                                      product
+                                                                                                    )
+                                                                                                  }
+                                                                                                }
+                                                                                              },
+                                                                                              [
+                                                                                                _c(
+                                                                                                  "i",
+                                                                                                  {
+                                                                                                    staticClass:
+                                                                                                      "fa fa-plus"
+                                                                                                  }
+                                                                                                )
+                                                                                              ]
+                                                                                            )
+                                                                                          ]
+                                                                                        )
+                                                                                      ]
+                                                                                    )
+                                                                                  : _vm._e()
+                                                                              }
+                                                                            )
+                                                                          ],
+                                                                          2
+                                                                        ),
+                                                                        _vm._v(
+                                                                          " "
+                                                                        ),
+                                                                        _c(
+                                                                          "div",
+                                                                          {
+                                                                            staticClass:
+                                                                              "col-xs-12"
+                                                                          },
+                                                                          [
+                                                                            _c(
+                                                                              "button",
+                                                                              {
+                                                                                staticClass:
+                                                                                  "btn btn-primary buynow",
+                                                                                attrs: {
+                                                                                  type:
+                                                                                    "button",
+                                                                                  onclick:
+                                                                                    "openNav()"
+                                                                                },
+                                                                                on: {
+                                                                                  click: [
+                                                                                    function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.addCart(
+                                                                                        product,
+                                                                                        product
+                                                                                      )
+                                                                                    },
+                                                                                    function(
+                                                                                      $event
+                                                                                    ) {
+                                                                                      return _vm.$bvModal.hide(
+                                                                                        "modal" +
+                                                                                          product.productNameId
+                                                                                      )
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              },
+                                                                              [
+                                                                                _c(
+                                                                                  "span",
+                                                                                  {
+                                                                                    staticClass:
+                                                                                      "glyphicon glyphicon-shopping-cart"
+                                                                                  }
+                                                                                ),
+                                                                                _vm._v(
+                                                                                  "\n                              Buy Now\n                            "
+                                                                                )
+                                                                              ]
+                                                                            )
+                                                                          ]
+                                                                        ),
+                                                                        _vm._v(
+                                                                          " "
+                                                                        ),
+                                                                        _vm._l(
+                                                                          _vm.carts,
+                                                                          function(
+                                                                            cart
+                                                                          ) {
+                                                                            return cart.id ==
+                                                                              product.id
+                                                                              ? _c(
+                                                                                  "div",
+                                                                                  {
+                                                                                    key:
+                                                                                      cart.id,
+                                                                                    staticClass:
+                                                                                      "col-xs-12 buynowclose"
+                                                                                  },
+                                                                                  [
+                                                                                    _c(
+                                                                                      "button",
+                                                                                      {
+                                                                                        staticClass:
+                                                                                          "btn btn-primary buynow",
+                                                                                        attrs: {
+                                                                                          type:
+                                                                                            "button",
+                                                                                          onclick:
+                                                                                            "openNav()"
+                                                                                        },
+                                                                                        on: {
+                                                                                          click: function(
+                                                                                            $event
+                                                                                          ) {
+                                                                                            return _vm.$bvModal.hide(
+                                                                                              "modal" +
+                                                                                                product.productNameId
+                                                                                            )
+                                                                                          }
+                                                                                        }
+                                                                                      },
+                                                                                      [
+                                                                                        _c(
+                                                                                          "span",
+                                                                                          {
+                                                                                            staticClass:
+                                                                                              "glyphicon glyphicon-shopping-cart"
+                                                                                          }
+                                                                                        ),
+                                                                                        _vm._v(
+                                                                                          "\n                              Buy Now\n                            "
+                                                                                        )
+                                                                                      ]
+                                                                                    )
+                                                                                  ]
+                                                                                )
+                                                                              : _vm._e()
+                                                                          }
+                                                                        ),
+                                                                        _vm._v(
+                                                                          " "
+                                                                        ),
+                                                                        _c(
+                                                                          "div",
+                                                                          {
+                                                                            staticClass:
+                                                                              "col-sm-4"
+                                                                          }
+                                                                        )
+                                                                      ],
+                                                                      2
+                                                                    )
+                                                                  : _vm._e()
                                                               ]
-                                                            )
-                                                          ])
-                                                        ],
-                                                        1
-                                                      )
-                                                    ]
-                                                  )
-                                                : _vm._e()
-                                            ]
-                                          )
-                                        }),
-                                        _vm._v(" "),
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "h5",
+                                                              {
+                                                                staticClass:
+                                                                  "pdetails"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Product Detais"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("div", {
+                                                              domProps: {
+                                                                innerHTML: _vm._s(
+                                                                  product.details
+                                                                )
+                                                              }
+                                                            }),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "h5",
+                                                              {
+                                                                staticClass:
+                                                                  "pdetails"
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Speciality"
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("div", {
+                                                              domProps: {
+                                                                innerHTML: _vm._s(
+                                                                  product.speciality
+                                                                )
+                                                              }
+                                                            })
+                                                          ],
+                                                          2
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _vm._m(3, true)
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-12 col-md-12 col-xs-12 paddingImage",
+                                        staticStyle: { height: "85px" },
+                                        attrs: { v: "" }
+                                      },
+                                      [
                                         _c(
-                                          "div",
+                                          "p",
                                           {
-                                            staticClass:
-                                              "col-12 col-md-12 col-xs-12 paddingImage"
+                                            staticStyle: {
+                                              "text-align": "left"
+                                            }
                                           },
                                           [
-                                            product.offer == null
-                                              ? _c(
-                                                  "div",
-                                                  { staticClass: "row" },
-                                                  [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "col-6 col-md-12 col-xs-4 amountBox paddingImage"
-                                                      },
-                                                      [
-                                                        _c("center", [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.getProductName(product)
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.offers, function(offer) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: offer.id,
+                                          staticClass:
+                                            "col-12 col-md-12 col-xs-12 paddingImage"
+                                        },
+                                        [
+                                          offer.productId ==
+                                          product.productNameId
+                                            ? _c(
+                                                "div",
+                                                { staticClass: "row" },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-4 col-xs-4 amountBox paddingImage"
+                                                    },
+                                                    [
+                                                      _c("center", [
+                                                        _c("bdi", [
                                                           _c(
                                                             "p",
                                                             {
@@ -2731,70 +2539,153 @@ var render = function() {
                                                               _vm._v(
                                                                 " " +
                                                                   _vm._s(
-                                                                    product.salesPrice
+                                                                    offer.totalPrice
                                                                   ) +
                                                                   "\n                      "
                                                               )
                                                             ]
                                                           )
                                                         ])
-                                                      ],
-                                                      1
-                                                    )
-                                                  ]
-                                                )
-                                              : _vm._e()
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _vm._l(_vm.offers, function(offer) {
-                                          return offer.productId ==
-                                            product.productNameId
-                                            ? _c(
+                                                      ])
+                                                    ],
+                                                    1
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "col-6 col-md-8 col-xs-4 discountBox paddingImage"
+                                                    },
+                                                    [
+                                                      _c("center", [
+                                                        _c(
+                                                          "p",
+                                                          {
+                                                            staticClass:
+                                                              "amountDiscount text-muted"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "span",
+                                                              {
+                                                                staticClass:
+                                                                  "tk"
+                                                              },
+                                                              [_vm._v("৳")]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("del", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  product.salesPrice
+                                                                ) + " "
+                                                              )
+                                                            ]),
+                                                            _vm._v(" "),
+                                                            _c("small", [
+                                                              _c(
+                                                                "span",
+                                                                {
+                                                                  staticClass:
+                                                                    "amount "
+                                                                },
+                                                                [
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      offer.offerPrice
+                                                                    ) + " "
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              offer.ammountType ==
+                                                              1
+                                                                ? _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "amount"
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "TK"
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                : _vm._e(),
+                                                              offer.ammountType ==
+                                                              2
+                                                                ? _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "amount"
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "%"
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                : _vm._e(),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "span",
+                                                                {
+                                                                  staticClass:
+                                                                    "amount"
+                                                                },
+                                                                [_vm._v("Off")]
+                                                              )
+                                                            ])
+                                                          ]
+                                                        )
+                                                      ])
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              )
+                                            : _vm._e()
+                                        ]
+                                      )
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "col-12 col-md-12 col-xs-12 paddingImage"
+                                      },
+                                      [
+                                        product.offer == null
+                                          ? _c("div", { staticClass: "row" }, [
+                                              _c(
                                                 "div",
                                                 {
                                                   staticClass:
-                                                    "col-12 col-md-12 col-xs-12 paddingImage3"
+                                                    "col-6 col-md-12 col-xs-4 amountBox paddingImage"
                                                 },
                                                 [
                                                   _c("center", [
                                                     _c(
                                                       "p",
                                                       {
-                                                        staticClass: "cartBox",
-                                                        staticStyle: {
-                                                          color: ""
-                                                        }
+                                                        staticClass:
+                                                          "amount dPrice"
                                                       },
                                                       [
-                                                        _c("i", {
-                                                          staticClass:
-                                                            "fa fa-shopping-cart",
-                                                          attrs: {
-                                                            "aria-hidden":
-                                                              "true"
-                                                          }
-                                                        }),
-                                                        _vm._v(" "),
                                                         _c(
                                                           "span",
-                                                          {
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.addCart(
-                                                                  product,
-                                                                  offer
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "Add TO Cart"
-                                                            )
-                                                          ]
+                                                          { staticClass: "tk" },
+                                                          [_vm._v("৳")]
+                                                        ),
+                                                        _vm._v(
+                                                          " " +
+                                                            _vm._s(
+                                                              product.salesPrice
+                                                            ) +
+                                                            "\n                      "
                                                         )
                                                       ]
                                                     )
@@ -2802,165 +2693,213 @@ var render = function() {
                                                 ],
                                                 1
                                               )
-                                            : _vm._e()
-                                        }),
-                                        _vm._v(" "),
-                                        product.offer == null
-                                          ? _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "col-12 col-md-12 col-xs-12 paddingImage3"
-                                              },
-                                              [
-                                                _c("center", [
-                                                  _c(
-                                                    "p",
-                                                    {
-                                                      staticClass: "cartBox",
-                                                      staticStyle: { color: "" }
-                                                    },
-                                                    [
-                                                      _c("i", {
-                                                        staticClass:
-                                                          "fa fa-shopping-cart",
-                                                        attrs: {
-                                                          "aria-hidden": "true"
-                                                        }
-                                                      }),
-                                                      _vm._v(" "),
-                                                      _c(
-                                                        "span",
-                                                        {
-                                                          on: {
-                                                            click: function(
-                                                              $event
-                                                            ) {
-                                                              return _vm.addCart(
-                                                                product,
-                                                                product
-                                                              )
-                                                            }
+                                            ])
+                                          : _vm._e()
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.offers, function(offer) {
+                                      return offer.productId ==
+                                        product.productNameId
+                                        ? _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "col-12 col-md-12 col-xs-12 paddingImage3"
+                                            },
+                                            [
+                                              _c("center", [
+                                                _c(
+                                                  "p",
+                                                  {
+                                                    staticClass: "cartBox",
+                                                    staticStyle: { color: "" }
+                                                  },
+                                                  [
+                                                    _c("i", {
+                                                      staticClass:
+                                                        "fa fa-shopping-cart",
+                                                      attrs: {
+                                                        "aria-hidden": "true"
+                                                      }
+                                                    }),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.addCart(
+                                                              product,
+                                                              offer
+                                                            )
                                                           }
-                                                        },
-                                                        [_vm._v("Add TO Cart")]
-                                                      )
-                                                    ]
-                                                  )
-                                                ])
-                                              ],
-                                              1
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _vm._l(_vm.carts, function(cart) {
-                                          return cart.id == product.id
-                                            ? _c(
-                                                "div",
+                                                        }
+                                                      },
+                                                      [_vm._v("Add TO Cart")]
+                                                    )
+                                                  ]
+                                                )
+                                              ])
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e()
+                                    }),
+                                    _vm._v(" "),
+                                    product.offer == null
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "col-12 col-md-12 col-xs-12 paddingImage3"
+                                          },
+                                          [
+                                            _c("center", [
+                                              _c(
+                                                "p",
                                                 {
-                                                  key: cart.id,
-                                                  staticClass:
-                                                    "col-12 col-md-12 col-xs-12 paddingImage3 adcart"
+                                                  staticClass: "cartBox",
+                                                  staticStyle: { color: "" }
                                                 },
                                                 [
-                                                  _c("center", [
+                                                  _c("i", {
+                                                    staticClass:
+                                                      "fa fa-shopping-cart",
+                                                    attrs: {
+                                                      "aria-hidden": "true"
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "span",
+                                                    {
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.addCart(
+                                                            product,
+                                                            product
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [_vm._v("Add TO Cart")]
+                                                  )
+                                                ]
+                                              )
+                                            ])
+                                          ],
+                                          1
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm._l(_vm.carts, function(cart) {
+                                      return cart.id == product.id
+                                        ? _c(
+                                            "div",
+                                            {
+                                              key: cart.id,
+                                              staticClass:
+                                                "col-12 col-md-12 col-xs-12 paddingImage3 adcart"
+                                            },
+                                            [
+                                              _c("center", [
+                                                _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "btn-group",
+                                                    attrs: {
+                                                      role: "group",
+                                                      "aria-label":
+                                                        "Basic example"
+                                                    }
+                                                  },
+                                                  [
                                                     _c(
-                                                      "div",
+                                                      "button",
                                                       {
                                                         staticClass:
-                                                          "btn-group",
+                                                          "btn btn-danger",
                                                         attrs: {
-                                                          role: "group",
-                                                          "aria-label":
-                                                            "Basic example"
+                                                          type: "button"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.increment(
+                                                              cart
+                                                            )
+                                                          }
                                                         }
                                                       },
                                                       [
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "btn btn-danger",
-                                                            attrs: {
-                                                              type: "button"
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.increment(
-                                                                  cart
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                      +\n                    "
+                                                        _vm._v(
+                                                          "\n                      +\n                    "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "btn btn-danger",
+                                                        attrs: {
+                                                          type: "button"
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                      " +
+                                                            _vm._s(cart.qun) +
+                                                            " in Cart\n                    "
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "btn btn-danger",
+                                                        attrs: {
+                                                          type: "button"
+                                                        },
+                                                        on: {
+                                                          click: function(
+                                                            $event
+                                                          ) {
+                                                            return _vm.decrement(
+                                                              cart
                                                             )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "btn btn-danger",
-                                                            attrs: {
-                                                              type: "button"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                      " +
-                                                                _vm._s(
-                                                                  cart.qun
-                                                                ) +
-                                                                " in Cart\n                    "
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "button",
-                                                          {
-                                                            staticClass:
-                                                              "btn btn-danger",
-                                                            attrs: {
-                                                              type: "button"
-                                                            },
-                                                            on: {
-                                                              click: function(
-                                                                $event
-                                                              ) {
-                                                                return _vm.decrement(
-                                                                  cart
-                                                                )
-                                                              }
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                      -\n                    "
-                                                            )
-                                                          ]
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          "\n                      -\n                    "
                                                         )
                                                       ]
                                                     )
-                                                  ])
-                                                ],
-                                                1
-                                              )
-                                            : _vm._e()
-                                        })
-                                      ],
-                                      2
-                                    )
-                                  ]
+                                                  ]
+                                                )
+                                              ])
+                                            ],
+                                            1
+                                          )
+                                        : _vm._e()
+                                    })
+                                  ],
+                                  2
                                 )
-                              : _vm._e()
-                          }),
-                          0
+                              ]
+                            )
+                          ]
                         )
                       : _vm._e()
                   }),

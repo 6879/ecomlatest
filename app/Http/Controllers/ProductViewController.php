@@ -31,10 +31,19 @@ class ProductViewController extends Controller
             ->distinct('categoryId')
  
             ->get();
-        $pricegetq = DB::table('product_categories')
-        ->select('categoryId' ,DB::raw("CASE WHEN COUNT(*) <1 then COUNT(*) ELSE 12 END as 'productNameId'"))
-        ->groupBy(['categoryId'])        
-        ->get();
+        $pricegetq = PriceSetup::with('offer','productName')->join('category_images', 'price_setups.pname', '=', 'category_images.pname')
+
+            ->join('product_names', 'product_names.id', '=', 'price_setups.pname')
+
+            ->join('product_categories', 'product_categories.productNameId', '=', 'price_setups.pname')
+            ->join('purchase_products', 'purchase_products.pname', '=', 'price_setups.pname')
+           
+            ->where('status', 1)
+            ->where('homeSta', 1)
+            ->distinct('categoryId')
+ 
+            ->get();
+       
         
         return ['priceget' => $priceget,'pricegetq'=> $pricegetq];
     }

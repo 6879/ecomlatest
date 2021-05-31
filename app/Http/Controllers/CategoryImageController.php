@@ -7,6 +7,7 @@ use Image;
 use File;
 use Illuminate\Http\Request;
 use App\Models\CategoryImage;
+use App\Models\ProductCategory;
 use App\Models\PriceSetup;
 use Illuminate\Support\Str;
 class CategoryImageController extends Controller
@@ -55,7 +56,7 @@ class CategoryImageController extends Controller
         $edit=CategoryImage::where('pname',$id)->first();
         return response()->json($edit);
     }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *
@@ -64,7 +65,9 @@ class CategoryImageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $get=ProductCategory::where('productNameId',$id)->first();
+        $edit=ProductCategory::where('homeStatus',1)->where('categoryId',$get->categoryId)->count();
+        return response()->json($edit);
     }
 
     /**
@@ -271,12 +274,36 @@ class CategoryImageController extends Controller
         $form->videoUrl = $request->videoUrl;       
         $form->details = $request->details;       
         $form->speciality = $request->speciality;  
+    
        
         $form->update();
+if($request->homeStatus){
+    PriceSetup::where('pname',$id)->update([
+        'homeSta'=>$request->homeStatus
+    ]);
+     
+}
+if($request->homeStatus==''){
+    PriceSetup::where('pname',$id)->update([
+        'homeSta'=>0
+    ]);
+     
+}
         PriceSetup::where('pname',$id)->update([
             'status'=>1
         ]);
-      
+        if($request->homeStatus==''){
+        $get=ProductCategory::where('productNameId',$id)->first();
+        ProductCategory::where('categoryId',$get->categoryId)->update([
+            'homeStatus'=>0
+        ]);
+        }
+        if($request->homeStatus){
+        $get=ProductCategory::where('productNameId',$id)->first();
+        ProductCategory::where('categoryId',$get->categoryId)->update([
+            'homeStatus'=>$request->homeStatus
+        ]);
+        }
     }
 
     /**

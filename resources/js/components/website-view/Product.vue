@@ -20,15 +20,14 @@
             >
              
               <div class="col-12 col-md-12 col-xs-12 shadow mb-5 bg-white rounded"
-              v-for="lt in limits"
-                 v-if="lt.categoryId == menu.id && lt.productNameId <=12"
+              
               >
          
               <div
               
                 
               >
-                   {{index}}
+                  
                 <figure>
                   <img
                     class="img-fluid box3Images"
@@ -967,8 +966,8 @@ export default {
       axios
         .get("productView")
         .then((res) => {
-          this.prices = res.data.priceget;
-          this.limits = res.data.pricegetq;
+          this.prices = res.data.pricegetq;
+        
         })
         .catch((err) => console.log(err));
     },
